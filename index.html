@@ -154,34 +154,43 @@
         .testimonial-author { display: block; margin-top: 15px; color: var(--primary-blue); font-weight: 700; text-align: right; }
 
         /* --- LISTAS DE CONTRASTE --- */
-        .check-list li, .cross-list li {
-            margin-bottom: 15px; display: flex; align-items: flex-start; font-size: 1.1rem;
+        .check-list li, .cross-list li { margin-bottom: 15px; display: flex; align-items: flex-start; font-size: 1.1rem; }
+        .check-list li::before { content: '✔'; color: var(--primary-blue); font-weight: bold; margin-right: 12px; font-size: 1.3rem; }
+        .cross-list li::before { content: '✖'; color: var(--alert-red); font-weight: bold; margin-right: 12px; font-size: 1.3rem; }
+
+        /* --- SEÇÕES DE OFERTA / PREÇO (NOVAS) --- */
+        .value-anchoring { text-align: center; }
+        .value-anchoring p { font-size: 1.2rem; margin-bottom: 10px; }
+        .strike-price { text-decoration: line-through; color: var(--alert-red); font-weight: bold; font-size: 1.3rem; }
+
+        .price-reveal {
+            background: linear-gradient(145deg, rgba(0, 198, 255, 0.05), rgba(0, 114, 255, 0.15));
+            border: 2px solid var(--secondary-blue);
+            border-radius: 15px;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 114, 255, 0.2);
+            margin: 40px 0;
+            position: relative;
         }
-        .check-list li::before {
-            content: '✔'; color: var(--primary-blue); font-weight: bold; margin-right: 12px; font-size: 1.3rem;
-        }
-        .cross-list li::before {
-            content: '✖'; color: var(--alert-red); font-weight: bold; margin-right: 12px; font-size: 1.3rem;
-        }
+        .price-reveal h1 { font-size: 5rem; color: #fff; text-shadow: 0 0 25px var(--accent-glow); margin: 15px 0; line-height: 1; }
+        
+        .guarantee { text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.02); border-radius: 10px; }
+        
+        .micro-copy { font-size: 0.85rem; color: #aaa; text-align: center; margin-top: 15px; font-weight: 600; }
 
         /* --- CONTADOR --- */
         .countdown-box {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 68, 68, 0.3);
-            color: #ffaaaa;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 20px 0;
-            font-weight: 600;
+            background: rgba(255, 0, 0, 0.1); border: 1px solid rgba(255, 68, 68, 0.3);
+            color: #ffaaaa; padding: 15px; border-radius: 8px; text-align: center;
+            margin: 20px auto; font-weight: 600; max-width: 300px;
         }
         #timer { font-size: 1.5rem; color: #fff; font-weight: 800; font-family: 'Montserrat', sans-serif; }
 
         /* --- MARQUEE --- */
         .marquee-wrapper {
             background: linear-gradient(90deg, #000, #001a33, #000);
-            border-top: 1px solid var(--secondary-blue);
-            border-bottom: 1px solid var(--secondary-blue);
+            border-top: 1px solid var(--secondary-blue); border-bottom: 1px solid var(--secondary-blue);
             overflow: hidden; white-space: nowrap; padding: 10px 0;
         }
         .marquee-content { display: inline-block; animation: scroll-left 20s linear infinite; }
@@ -195,6 +204,7 @@
         @media (max-width: 768px) {
             .testimonials-grid { grid-template-columns: 1fr; }
             h1 { font-size: 1.8rem; }
+            .price-reveal h1 { font-size: 4rem; }
             .cta-button { font-size: 1rem; padding: 18px; }
             .section-title { font-size: 1.5rem; }
         }
@@ -238,7 +248,7 @@
         </div>
 
         <div class="cta-container">
-            <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 QUERO TER CONTROLE TOTAL AGORA</a>
+            <a href="#oferta" class="cta-button">👉 QUERO TER CONTROLE TOTAL AGORA</a>
         </div>
 
         <section class="text-center">
@@ -278,7 +288,7 @@
             </article>
 
             <div class="cta-container">
-                <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">QUERO APLICAR O MÉTODO</a>
+                <a href="#oferta" class="cta-button">QUERO APLICAR O MÉTODO</a>
             </div>
         </section>
 
@@ -308,7 +318,7 @@
 
             </div>
              <div class="cta-container" style="margin-top: 30px;">
-                <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">QUERO TER RESULTADOS ASSIM</a>
+                <a href="#oferta" class="cta-button">QUERO TER RESULTADOS ASSIM</a>
             </div>
         </section>
 
@@ -345,27 +355,56 @@
             </ul>
         </section>
 
-        <section class="text-center">
+        <section class="text-center" style="margin-bottom: 20px;">
             <div style="font-size: 3.5rem; margin-bottom: 15px;">🛡️</div>
             <h2 class="text-gradient">Garantia Blindada de 7 Dias</h2>
             <p>Teste o método sem riscos. Se não sentir evolução, devolvemos seu dinheiro.</p>
         </section>
 
-        <section id="oferta-final" style="background: rgba(0, 114, 255, 0.05); border: 1px dashed var(--secondary-blue); border-radius: 15px; padding: 40px 20px;">
-            <h2 class="text-gradient text-center">ÚLTIMA CHANCE</h2>
+        <section class="value-anchoring">
+            <h2 class="text-gradient section-title" style="font-size: 2.2rem;">Quanto Vale Recuperar Sua Confiança?</h2>
+            <p>Quanto vale entrar em um quarto sem medo?</p>
+            <p>Quanto vale não precisar inventar desculpas depois?</p>
+            <p><strong>Quanto vale sentir que você está no controle?</strong></p>
             
-            <div class="countdown-box">
-                <p style="font-size: 0.9rem; margin-bottom: 5px;">OFERTA ENCERRA EM:</p>
+            <div style="margin: 30px 0;">
+                <p style="color: #aaa; font-size: 1.1rem;">Alguns homens pagam centenas de reais em consultas.</p>
+                <p style="color: #aaa; font-size: 1.1rem;">Outros gastam com soluções temporárias que não resolvem a raiz do problema.</p>
+            </div>
+
+            <p>Mas você não precisa gastar <span class="strike-price">R$297</span>.</p>
+            <p>Nem <span class="strike-price">R$197</span>.</p>
+            <p>E nem <span class="strike-price">R$97</span>.</p>
+        </section>
+
+        <div id="oferta"></div> <section class="price-reveal">
+            
+            <div class="countdown-box" style="margin-top: -20px; margin-bottom: 30px;">
+                <p style="font-size: 0.8rem; margin-bottom: 5px;">A OFERTA ENCERRA EM:</p>
                 <div id="timer">14:59</div>
             </div>
 
-            <p class="text-center" style="margin-bottom: 20px;">
-                Essa condição promocional é temporária e pode ser encerrada a qualquer momento. Ao garantir agora, você também recebe o <strong>Bônus Guia Anti-Ansiedade gratuitamente.</strong>
-            </p>
+            <h2 class="text-gradient" style="font-size: 1.8rem; margin-bottom: 10px;">Acesso Completo ao Longer Method</h2>
+            <p style="font-size: 1.3rem; font-weight: bold; color: #fff;">Hoje, você tem acesso imediato por apenas</p>
+            
+            <h1>R$24</h1>
+            
+            <p>Menos que uma pizza.</p>
+            <p>Menos que uma saída comum.</p>
+            <p style="color: var(--primary-blue); font-weight: bold; font-size: 1.2rem; margin-top: 10px;">E pode transformar completamente sua segurança.</p>
+            
+            <p style="font-style: italic; margin-top: 20px; color: #ccc;">"Você não está pagando por um ebook. Você está investindo no controle que sempre deveria ter sido seu."</p>
 
             <div class="cta-container">
-                <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 SIM, EU QUERO TER CONTROLE TOTAL</a>
+                <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 QUERO ACESSAR O LONGER METHOD AGORA</a>
+                <p class="micro-copy">🔒 Pagamento único. Acesso imediato. Conteúdo 100% online e discreto.</p>
             </div>
+        </section>
+
+        <section class="guarantee">
+            <h2 class="text-gradient" style="font-size: 1.5rem; margin-bottom: 10px;">Risco Zero</h2>
+            <p style="font-size: 1.1rem;">Você acessa o conteúdo imediatamente e pode começar hoje mesmo.</p>
+            <p style="font-size: 1.1rem; color: #ccc; margin-top: 5px;">O único risco aqui é continuar adiando e permanecer na mesma situação.</p>
         </section>
 
         <footer style="text-align: center; padding: 40px 0; font-size: 0.8rem; color: #555; border-top: 1px solid rgba(255,255,255,0.05);">
@@ -375,6 +414,16 @@
     </div>
 
     <script>
+        // --- ROLAGEM SUAVE PARA OS BOTÕES INTERNOS ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
         // --- CONTADOR DE ESCASSEZ ---
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
