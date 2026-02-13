@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- RESET E VARIÁVEIS --- */
         :root {
             --bg-color: #000000;
             --text-color: #e0e0e0;
@@ -22,12 +21,7 @@
             --border-glass: rgba(0, 198, 255, 0.2);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            outline: none;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
 
         body {
             background-color: var(--bg-color);
@@ -43,18 +37,10 @@
             line-height: 1.2;
         }
 
-        /* --- PARTICULAS BACKGROUND (Canvas) --- */
         #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;
         }
 
-        /* --- TIPOGRAFIA DEGRADÊ --- */
         .text-gradient {
             background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
             -webkit-background-clip: text;
@@ -62,76 +48,37 @@
             font-weight: 900;
         }
 
-        /* --- CONTAINER GERAL --- */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
+            max-width: 800px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1;
         }
 
-        section {
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+        section { padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-        /* --- CARROSSEL INFINITO --- */
         .marquee-wrapper {
             background: linear-gradient(90deg, #000, #001a33, #000);
             border-top: 1px solid var(--secondary-blue);
             border-bottom: 1px solid var(--secondary-blue);
-            overflow: hidden;
-            white-space: nowrap;
-            padding: 10px 0;
-            position: relative;
+            overflow: hidden; white-space: nowrap; padding: 10px 0; position: relative;
         }
 
-        .marquee-content {
-            display: inline-block;
-            animation: scroll-left 15s linear infinite;
-        }
-
+        .marquee-content { display: inline-block; animation: scroll-left 15s linear infinite; }
         .marquee-content span {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.2rem;
-            color: var(--primary-blue);
-            text-shadow: 0 0 10px var(--accent-glow);
-            margin-right: 50px;
-            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem;
+            color: var(--primary-blue); text-shadow: 0 0 10px var(--accent-glow); margin-right: 50px; text-transform: uppercase;
         }
 
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- BOTÃO CTA ANIMADO --- */
         .cta-button {
-            display: block;
-            width: 100%;
-            max-width: 400px;
-            margin: 30px auto;
-            padding: 20px;
+            display: block; width: 100%; max-width: 400px; margin: 30px auto; padding: 20px;
             background: linear-gradient(90deg, var(--secondary-blue), var(--primary-blue));
-            color: #fff;
-            text-align: center;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.3rem;
-            border-radius: 50px;
-            box-shadow: 0 0 20px var(--accent-glow);
-            text-transform: uppercase;
-            animation: pulse-blue 2s infinite;
-            transition: transform 0.2s;
-            border: 2px solid #fff;
+            color: #fff; text-align: center; text-decoration: none;
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.3rem;
+            border-radius: 50px; box-shadow: 0 0 20px var(--accent-glow);
+            text-transform: uppercase; animation: pulse-blue 2s infinite;
+            transition: transform 0.2s; border: 2px solid #fff;
         }
-
-        .cta-button:active {
-            transform: scale(0.95);
-        }
+        .cta-button:active { transform: scale(0.95); }
 
         @keyframes pulse-blue {
             0% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0.7); }
@@ -139,7 +86,7 @@
             100% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0); }
         }
 
-        /* --- VSL CONTAINER (CORRIGIDO) --- */
+        /* --- VSL CONTAINER BLINDADO --- */
         .vsl-wrapper {
             width: 100%;
             max-width: 800px;
@@ -149,109 +96,48 @@
             box-shadow: 0 0 30px rgba(0, 198, 255, 0.2);
             overflow: hidden;
             background: #000;
+            position: relative;
         }
 
         .video-responsive {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             width: 100%;
         }
 
         .video-responsive video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
         }
 
-        /* --- HEADLINE --- */
-        .header-section {
+        /* DEBUGGER DE ERRO */
+        #video-error-msg {
+            display: none;
+            color: #ff4444;
+            background: rgba(50,0,0,0.8);
+            padding: 10px;
             text-align: center;
-            padding-top: 40px;
-        }
-        
-        .header-section h1 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #fff;
+            border: 1px solid red;
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
 
-        .subheadline {
-            font-size: 1.1rem;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-
-        /* --- CARDS E CONTEÚDO --- */
+        .header-section { text-align: center; padding-top: 40px; }
+        .header-section h1 { font-size: 2rem; margin-bottom: 15px; color: #fff; }
+        .subheadline { font-size: 1.1rem; color: #ccc; margin-bottom: 20px; }
         .content-box {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
+            background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass); border-radius: 15px; padding: 30px; margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
-        .highlight-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .highlight-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-        }
-
-        .highlight-list li::before {
-            content: '✔';
-            color: var(--primary-blue);
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-right: 10px;
-        }
-
-        /* --- PROVA SOCIAL --- */
-        .testimonial {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 4px solid var(--primary-blue);
-            padding: 15px;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        
-        .testimonial strong {
-            display: block;
-            margin-top: 10px;
-            color: var(--primary-blue);
-            font-style: normal;
-        }
-
-        /* --- GARANTIA --- */
-        .guarantee-badge {
-            display: block;
-            width: 120px;
-            margin: 0 auto 20px auto;
-        }
-
+        .highlight-list { list-style: none; margin-top: 20px; }
+        .highlight-list li { margin-bottom: 15px; display: flex; align-items: center; font-size: 1.1rem; }
+        .highlight-list li::before { content: '✔'; color: var(--primary-blue); font-weight: bold; font-size: 1.5rem; margin-right: 10px; }
+        .testimonial { background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--primary-blue); padding: 15px; margin-bottom: 20px; font-style: italic; }
+        .testimonial strong { display: block; margin-top: 10px; color: var(--primary-blue); font-style: normal; }
         .center-text { text-align: center; }
+        .price-box { text-align: center; border: 2px dashed var(--secondary-blue); padding: 20px; border-radius: 10px; background: rgba(0, 114, 255, 0.1); }
 
-        /* --- PREÇO/ESCASSEZ --- */
-        .price-box {
-            text-align: center;
-            border: 2px dashed var(--secondary-blue);
-            padding: 20px;
-            border-radius: 10px;
-            background: rgba(0, 114, 255, 0.1);
-        }
-
-        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 600px) {
             .header-section h1 { font-size: 1.6rem; }
             .cta-button { font-size: 1.1rem; padding: 18px; }
@@ -265,162 +151,132 @@
 
     <div class="marquee-wrapper">
         <div class="marquee-content">
-            <span>ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; </span>
-            <span>ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; </span>
+            <span>ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; </span>
+            <span>ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; </span>
         </div>
     </div>
 
     <div class="container">
         <header class="header-section">
             <h1>Cansado de terminar <span class="text-gradient">antes dela?</span></h1>
-            <p class="subheadline">Descubra o método que está ajudando homens comuns a sair do controle de 1 minuto para sessões muito mais longas — <strong>sem remédios, sem anestésicos e sem depender de sorte.</strong></p>
-            <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 10px;">Um guia prático, discreto e direto ao ponto para você recuperar o controle do seu corpo.</p>
+            <p class="subheadline">Descubra o método que está ajudando homens comuns a sair do controle de 1 minuto para sessões muito mais longas.</p>
         </header>
 
         <div class="vsl-wrapper">
             <div class="video-responsive">
-                <video controls playsinline webkit-playsinline preload="auto" width="100%" height="100%">
+                <video id="myVideo" controls playsinline webkit-playsinline muted preload="auto">
                     <source src="./video.mp4" type="video/mp4">
+                    <source src="./video" type="video/mp4">
+                    
                     <p style="color:white; text-align:center; padding: 20px;">
                         Seu navegador não suporta este vídeo. 
-                        <a href="./video.mp4" style="color: #00c6ff;">Clique aqui para ver o arquivo.</a>
                     </p>
                 </video>
             </div>
         </div>
+        <div id="video-error-msg"></div>
 
         <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 QUERO TER CONTROLE TOTAL AGORA</a>
 
-        <section id="dor" class="content-box">
+        <section class="content-box">
             <h2 class="text-gradient center-text">O Silêncio que Machuca</h2>
             <br>
-            <p>Você começa animado, quer impressionar, quer mostrar que é homem de verdade...</p>
-            <p><strong>Mas quando percebe… já acabou.</strong></p>
+            <p>Você começa animado, mas quando percebe… <strong>já acabou.</strong></p>
             <br>
-            <p>E o pior não é o tempo. É o silêncio. É a decepção. É a sensação de fracasso. Você finge que está tudo bem. Ela finge que não se importa. <strong>Mas você sabe.</strong></p>
-            <br>
-            <p>E isso começa a destruir sua confiança, dia após dia.</p>
+            <p>E o pior não é o tempo. É a decepção no olhar dela.</p>
         </section>
 
-        <section id="crencas">
+        <section>
             <h2 class="text-gradient">Não é culpa da sua virilidade</h2>
-            <p>Não é tamanho. Não é testosterona baixa. E na maioria das vezes… não é psicológico.</p>
-            <br>
-            <div style="background: rgba(0,198,255,0.1); padding: 20px; border-left: 3px solid #fff;">
-                <p><strong>O que ninguém te ensina é que:</strong></p>
+            <div style="background: rgba(0,198,255,0.1); padding: 20px; border-left: 3px solid #fff; margin-top: 15px;">
+                <p><strong>O que ninguém te ensina:</strong></p>
                 <ul style="margin-left: 20px; margin-top: 10px;">
                     <li>Você nunca aprendeu a controlar o reflexo ejaculatório.</li>
-                    <li>Ninguém te ensinou técnicas práticas de domínio corporal.</li>
-                    <li>A indústria prefere te vender pílulas do que ensinar controle.</li>
+                    <li>Ninguém te ensinou técnicas de domínio corporal.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="metodo" class="content-box">
+        <section class="content-box">
             <h2 class="text-gradient center-text">🔥 Método Controle Absoluto</h2>
-            <p class="center-text">Um passo a passo estruturado que ensina:</p>
-            
             <ul class="highlight-list">
-                <li>Técnicas de respiração que reduzem o pico de excitação</li>
-                <li>Exercícios físicos específicos que fortalecem o músculo do controle</li>
-                <li>Estratégias mentais para não perder o domínio na hora H</li>
-                <li>Ajustes práticos durante o ato que prolongam a relação</li>
-                <li>Como sair do ciclo da ansiedade de desempenho</li>
+                <li>Técnicas de respiração anti-ansiedade</li>
+                <li>Exercícios de fortalecimento do músculo PC</li>
+                <li>Estratégias mentais para durar 3x mais</li>
             </ul>
-            <br>
-            <p class="center-text"><strong>Sem remédio. Sem anestésico. Sem “truque milagroso”.</strong></p>
-            
             <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">QUERO APRENDER O MÉTODO</a>
         </section>
 
-        <section id="beneficios">
-            <h2 class="text-gradient center-text">Imagine a transformação</h2>
-            <br>
-            <p>Imagine sentir que <strong>você decide</strong> quando terminar. Conseguir manter o ritmo sem entrar em pânico. Ver ela pedindo “não para”. Recuperar a confiança que você perdeu.</p>
-            <br>
-            <p>Não é só sobre sexo. É sobre:</p>
-            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
-                <span style="border: 1px solid var(--primary-blue); padding: 10px; margin: 5px; border-radius: 5px;">Masculinidade</span>
-                <span style="border: 1px solid var(--primary-blue); padding: 10px; margin: 5px; border-radius: 5px;">Segurança</span>
-                <span style="border: 1px solid var(--primary-blue); padding: 10px; margin: 5px; border-radius: 5px;">Autoconfiança</span>
-            </div>
-        </section>
-
-        <section id="prova-social">
-            <h2 class="center-text text-gradient">Homens Reais, Resultados Reais</h2>
-            <br>
+        <section>
+            <h2 class="center-text text-gradient">Resultados Reais</h2>
             <div class="testimonial">
                 <p>“Eu mal passava de 1 minuto. Hoje consigo controlar o tempo e minha confiança mudou completamente.”</p>
                 <strong>– R.A.</strong>
             </div>
-            <div class="testimonial">
-                <p>“Eu vivia evitando relacionamento. Depois de aplicar o método por algumas semanas, já senti diferença real.”</p>
-                <strong>– L.S.</strong>
-            </div>
         </section>
 
-        <section id="oferta" class="content-box">
-            <h2 class="text-gradient center-text">Você Recebe Agora:</h2>
+        <section class="content-box">
+            <h2 class="text-gradient center-text">O Que Você Recebe:</h2>
             <ul class="highlight-list">
-                <li>📘 Ebook Completo – Método Controle Absoluto</li>
-                <li>🎥 Aulas explicativas passo a passo</li>
-                <li>📋 Plano de aplicação prática</li>
-                <li>🎁 Bônus: Guia de Controle Mental Anti-Ansiedade</li>
-                <li>🎁 Bônus 2: Rotina de fortalecimento íntimo</li>
+                <li>📘 Ebook Completo + Vídeo Aulas</li>
+                <li>🎁 Bônus: Guia Anti-Ansiedade</li>
+                <li>🔒 Acesso 100% discreto</li>
             </ul>
-            <br>
-            <p class="center-text" style="color: var(--primary-blue); font-weight: bold;">🔒 Acesso imediato e 100% discreto.</p>
         </section>
 
-        <section id="faq">
-            <h3 class="text-gradient">Dúvidas Comuns</h3>
-            <br>
-            <p><strong>“E se não funcionar pra mim?”</strong></p>
-            <p style="color: #aaa;">A maioria dos homens nunca aplicou técnicas corretas. Aqui você terá um sistema estruturado.</p>
-            <br>
-            <p><strong>“Tenho vergonha.”</strong></p>
-            <p style="color: #aaa;">Compra 100% online, segura e o nome na fatura é discreto.</p>
-            <br>
-            <p><strong>“É só mais um ebook?”</strong></p>
-            <p style="color: #aaa;">Não. É um método prático, organizado e aplicável com vídeo aulas.</p>
-        </section>
-
-        <section id="garantia" class="center-text">
+        <section class="center-text">
             <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
-            <h2 class="text-gradient">Garantia Blindada de 7 Dias</h2>
-            <p>Teste por 7 dias. Se você não sentir que está aprendendo algo realmente útil, peça seu dinheiro de volta.</p>
-            <p><strong>Sem perguntas. Sem burocracia.</strong></p>
+            <h2 class="text-gradient">Garantia de 7 Dias</h2>
+            <p>Risco zero. Se não gostar, devolvemos seu dinheiro.</p>
         </section>
 
-        <section id="final" class="price-box">
+        <section class="price-box">
             <h2 class="text-gradient">Última Chance</h2>
-            <p>Esse material não ficará disponível por tempo indeterminado.</p>
-            <p style="font-size: 1.2rem; margin: 10px 0;">O preço promocional é temporário.</p>
-            
+            <p>O preço promocional é temporário.</p>
             <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 SIM, EU QUERO TER CONTROLE</a>
         </section>
 
         <footer style="text-align: center; padding: 40px 0; font-size: 0.8rem; color: #555;">
             <p>Copyright © 2024 - Método Controle Absoluto</p>
-            <p>Este site não faz parte do Facebook ou do Google. Este site não é endossado por eles.</p>
-            <p>Os resultados podem variar de pessoa para pessoa.</p>
         </footer>
     </div>
 
     <script>
+        // --- SCRIPT DE DEBUG DO VÍDEO ---
+        const video = document.getElementById('myVideo');
+        const errorMsg = document.getElementById('video-error-msg');
+
+        // Tenta forçar o play se estiver pausado (útil mobile)
+        video.addEventListener('loadeddata', () => {
+            console.log("Vídeo carregado com sucesso!");
+            errorMsg.style.display = 'none';
+        });
+
+        video.addEventListener('error', (e) => {
+            errorMsg.style.display = 'block';
+            let msg = "Erro desconhecido.";
+            if (video.error) {
+                switch (video.error.code) {
+                    case 1: msg = "Carregamento abortado pelo usuário."; break;
+                    case 2: msg = "Erro de rede ao baixar o vídeo."; break;
+                    case 3: msg = "Erro ao decodificar o vídeo."; break;
+                    case 4: msg = "ARQUIVO NÃO ENCONTRADO (Verifique o nome/pasta)."; break;
+                }
+            }
+            errorMsg.innerText = "⚠️ ERRO NO VÍDEO: " + msg + " (Verifique se o arquivo 'video.mp4' está na pasta correta no GitHub)";
+        }, true);
+
+        // --- SCRIPT DAS PARTÍCULAS ---
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-        
         let particlesArray;
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        window.addEventListener('resize', () => {
+        function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            init();
-        });
+        }
+        window.addEventListener('resize', () => { resizeCanvas(); init(); });
+        resizeCanvas();
 
         class Particle {
             constructor() {
@@ -431,45 +287,26 @@
                 this.speedY = (Math.random() * 1) - 0.5;
                 this.color = `rgba(0, 198, 255, ${Math.random() * 0.5 + 0.2})`; 
             }
-
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
+                this.x += this.speedX; this.y += this.speedY;
                 if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
                 if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
             }
-
             draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = "#00c6ff";
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color; ctx.shadowBlur = 10; ctx.shadowColor = "#00c6ff"; ctx.fill();
             }
         }
-
         function init() {
             particlesArray = [];
             let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                particlesArray.push(new Particle());
-            }
+            for (let i = 0; i < numberOfParticles; i++) particlesArray.push(new Particle());
         }
-
         function animate() {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-            }
+            requestAnimationFrame(animate); ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); particlesArray[i].draw(); }
         }
-
-        init();
-        animate();
+        init(); animate();
     </script>
 </body>
 </html>
