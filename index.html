@@ -64,7 +64,7 @@
 
         /* --- CONTAINER GERAL --- */
         .container {
-            max-width: 800px; /* Estilo Carta de Vendas - Foco Central */
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
             position: relative;
@@ -139,25 +139,32 @@
             100% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0); }
         }
 
-        /* --- VIDEO VSL --- */
-        .vsl-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            background: #000;
+        /* --- VSL CONTAINER (CORRIGIDO) --- */
+        .vsl-wrapper {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
             border: 2px solid var(--primary-blue);
             border-radius: 10px;
             box-shadow: 0 0 30px rgba(0, 198, 255, 0.2);
             overflow: hidden;
-            margin: 20px 0;
+            background: #000;
         }
 
-        .vsl-container video {
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            width: 100%;
+        }
+
+        .video-responsive video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
 
         /* --- HEADLINE --- */
@@ -270,11 +277,16 @@
             <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 10px;">Um guia prático, discreto e direto ao ponto para você recuperar o controle do seu corpo.</p>
         </header>
 
-        <div class="vsl-container">
-            <video controls controlsList="nodownload">
-                <source src="video.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos.
-            </video>
+        <div class="vsl-wrapper">
+            <div class="video-responsive">
+                <video controls playsinline webkit-playsinline preload="auto" width="100%" height="100%">
+                    <source src="./video.mp4" type="video/mp4">
+                    <p style="color:white; text-align:center; padding: 20px;">
+                        Seu navegador não suporta este vídeo. 
+                        <a href="./video.mp4" style="color: #00c6ff;">Clique aqui para ver o arquivo.</a>
+                    </p>
+                </video>
+            </div>
         </div>
 
         <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 QUERO TER CONTROLE TOTAL AGORA</a>
@@ -401,33 +413,29 @@
         
         let particlesArray;
 
-        // Ajustar tamanho do canvas
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // Lidar com redimensionamento
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             init();
         });
 
-        // Classe Partícula
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1; // Tamanho
+                this.size = Math.random() * 2 + 1; 
                 this.speedX = (Math.random() * 1) - 0.5;
                 this.speedY = (Math.random() * 1) - 0.5;
-                this.color = `rgba(0, 198, 255, ${Math.random() * 0.5 + 0.2})`; // Azul variável
+                this.color = `rgba(0, 198, 255, ${Math.random() * 0.5 + 0.2})`; 
             }
 
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
 
-                // Rebater nas bordas
                 if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
                 if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
             }
@@ -442,16 +450,14 @@
             }
         }
 
-        // Inicializar
         function init() {
             particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 9000; // Densidade
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
             for (let i = 0; i < numberOfParticles; i++) {
                 particlesArray.push(new Particle());
             }
         }
 
-        // Animar
         function animate() {
             requestAnimationFrame(animate);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
