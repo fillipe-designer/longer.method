@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Método Controle Absoluto - Acabe com a Ejaculação Precoce">
-    <title>Método Controle Absoluto</title>
+    <meta name="description" content="Longer Method - O Protocolo de Controle Total">
+    <title>Longer Method | Controle Total</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* --- VARIÁVEIS E RESET --- */
         :root {
             --bg-color: #000000;
             --text-color: #e0e0e0;
             --primary-blue: #00c6ff;
             --secondary-blue: #0072ff;
+            --alert-red: #ff4444;
             --accent-glow: rgba(0, 198, 255, 0.6);
-            --glass-bg: rgba(10, 10, 10, 0.75);
+            --glass-bg: rgba(10, 10, 10, 0.85);
             --border-glass: rgba(0, 198, 255, 0.2);
         }
 
@@ -29,18 +31,24 @@
             font-family: 'Open Sans', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
+            padding-bottom: 50px;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
             line-height: 1.2;
+            letter-spacing: -0.5px;
         }
 
+        strong { color: #fff; font-weight: 700; }
+
+        /* --- BACKGROUND --- */
         #particles-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;
         }
 
+        /* --- TIPOGRAFIA --- */
         .text-gradient {
             background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
             -webkit-background-clip: text;
@@ -48,100 +56,147 @@
             font-weight: 900;
         }
 
+        .text-center { text-align: center; }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* --- LAYOUT --- */
         .container {
             max-width: 800px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1;
         }
 
-        section { padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        section { padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
+        /* --- ELEMENTOS VISUAIS --- */
+        .glass-card {
+            background: var(--glass-bg); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass); 
+            border-radius: 15px; 
+            padding: 30px; 
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* --- CTA BUTTON --- */
+        .cta-container { text-align: center; margin: 30px 0; }
+        
+        .cta-button {
+            display: inline-block;
+            width: 100%;
+            max-width: 450px;
+            padding: 22px;
+            background: linear-gradient(90deg, var(--secondary-blue), var(--primary-blue));
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 0 25px rgba(0, 198, 255, 0.4);
+            text-transform: uppercase;
+            animation: pulse-blue 2s infinite;
+            border: 2px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(0, 198, 255, 0.6); }
+
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 198, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0); }
+        }
+
+        /* --- VSL BLINDADA --- */
+        .vsl-wrapper {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto 40px auto;
+            border: 2px solid var(--primary-blue);
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 198, 255, 0.15);
+            background: #000;
+            position: relative;
+        }
+        .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; width: 100%; }
+        .video-responsive video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- PILARES DO MÉTODO --- */
+        .pilar-box {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-left: 3px solid var(--primary-blue);
+            background: rgba(255,255,255,0.03);
+        }
+        .pilar-title { color: var(--primary-blue); font-weight: 800; font-size: 1.2rem; display: block; margin-bottom: 5px; text-transform: uppercase; }
+
+        /* --- DEPOIMENTOS (GRID) --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .testimonial-text { font-style: italic; font-size: 0.95rem; color: #ddd; }
+        .testimonial-author { display: block; margin-top: 15px; color: var(--primary-blue); font-weight: 700; text-align: right; }
+
+        /* --- LISTAS DE CONTRASTE --- */
+        .check-list li, .cross-list li {
+            margin-bottom: 15px; display: flex; align-items: flex-start; font-size: 1.1rem;
+        }
+        .check-list li::before {
+            content: '✔'; color: var(--primary-blue); font-weight: bold; margin-right: 12px; font-size: 1.3rem;
+        }
+        .cross-list li::before {
+            content: '✖'; color: var(--alert-red); font-weight: bold; margin-right: 12px; font-size: 1.3rem;
+        }
+
+        /* --- CONTADOR --- */
+        .countdown-box {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            color: #ffaaaa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+        #timer { font-size: 1.5rem; color: #fff; font-weight: 800; font-family: 'Montserrat', sans-serif; }
+
+        /* --- MARQUEE --- */
         .marquee-wrapper {
             background: linear-gradient(90deg, #000, #001a33, #000);
             border-top: 1px solid var(--secondary-blue);
             border-bottom: 1px solid var(--secondary-blue);
-            overflow: hidden; white-space: nowrap; padding: 10px 0; position: relative;
+            overflow: hidden; white-space: nowrap; padding: 10px 0;
         }
-
-        .marquee-content { display: inline-block; animation: scroll-left 15s linear infinite; }
+        .marquee-content { display: inline-block; animation: scroll-left 20s linear infinite; }
         .marquee-content span {
             font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem;
             color: var(--primary-blue); text-shadow: 0 0 10px var(--accent-glow); margin-right: 50px; text-transform: uppercase;
         }
-
         @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        .cta-button {
-            display: block; width: 100%; max-width: 400px; margin: 30px auto; padding: 20px;
-            background: linear-gradient(90deg, var(--secondary-blue), var(--primary-blue));
-            color: #fff; text-align: center; text-decoration: none;
-            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.3rem;
-            border-radius: 50px; box-shadow: 0 0 20px var(--accent-glow);
-            text-transform: uppercase; animation: pulse-blue 2s infinite;
-            transition: transform 0.2s; border: 2px solid #fff;
-        }
-        .cta-button:active { transform: scale(0.95); }
-
-        @keyframes pulse-blue {
-            0% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(0, 198, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0); }
-        }
-
-        /* --- VSL CONTAINER BLINDADO --- */
-        .vsl-wrapper {
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-            border: 2px solid var(--primary-blue);
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 198, 255, 0.2);
-            overflow: hidden;
-            background: #000;
-            position: relative;
-        }
-
-        .video-responsive {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            width: 100%;
-        }
-
-        .video-responsive video {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
-        }
-
-        /* DEBUGGER DE ERRO */
-        #video-error-msg {
-            display: none;
-            color: #ff4444;
-            background: rgba(50,0,0,0.8);
-            padding: 10px;
-            text-align: center;
-            border: 1px solid red;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-
-        .header-section { text-align: center; padding-top: 40px; }
-        .header-section h1 { font-size: 2rem; margin-bottom: 15px; color: #fff; }
-        .subheadline { font-size: 1.1rem; color: #ccc; margin-bottom: 20px; }
-        .content-box {
-            background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass); border-radius: 15px; padding: 30px; margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .highlight-list { list-style: none; margin-top: 20px; }
-        .highlight-list li { margin-bottom: 15px; display: flex; align-items: center; font-size: 1.1rem; }
-        .highlight-list li::before { content: '✔'; color: var(--primary-blue); font-weight: bold; font-size: 1.5rem; margin-right: 10px; }
-        .testimonial { background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--primary-blue); padding: 15px; margin-bottom: 20px; font-style: italic; }
-        .testimonial strong { display: block; margin-top: 10px; color: var(--primary-blue); font-style: normal; }
-        .center-text { text-align: center; }
-        .price-box { text-align: center; border: 2px dashed var(--secondary-blue); padding: 20px; border-radius: 10px; background: rgba(0, 114, 255, 0.1); }
-
-        @media (max-width: 600px) {
-            .header-section h1 { font-size: 1.6rem; }
-            .cta-button { font-size: 1.1rem; padding: 18px; }
-            section { padding: 30px 0; }
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .testimonials-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+            .cta-button { font-size: 1rem; padding: 18px; }
+            .section-title { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -151,15 +206,25 @@
 
     <div class="marquee-wrapper">
         <div class="marquee-content">
-            <span>ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; </span>
-            <span>ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; ACABE COM A EJACULAÇÃO PRECOCE &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; </span>
+            <span>LONGER METHOD &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; LONGER METHOD &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; LONGER METHOD &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; </span>
+            <span>LONGER METHOD &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; LONGER METHOD &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; LONGER METHOD &nbsp;&nbsp; • &nbsp;&nbsp; CONTROLE TOTAL &nbsp;&nbsp; • &nbsp;&nbsp; </span>
         </div>
     </div>
 
     <div class="container">
-        <header class="header-section">
-            <h1>Cansado de terminar <span class="text-gradient">antes dela?</span></h1>
-            <p class="subheadline">Descubra o método que está ajudando homens comuns a sair do controle de 1 minuto para sessões muito mais longas.</p>
+        
+        <header style="padding-top: 50px; text-align: center;">
+            <h1 style="color: #fff; margin-bottom: 15px;">
+                Cansado de terminar <span class="text-gradient">antes dela?</span>
+            </h1>
+            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.5; color: #ccc;">
+                Descubra como o <strong>Longer Method</strong> está ajudando homens a sair do controle de 1 minuto para sessões muito mais longas e confiantes.
+            </p>
+            <div style="margin-top: 20px; padding: 10px; background: rgba(0, 198, 255, 0.1); border-radius: 5px; display: inline-block;">
+                <p style="color: var(--primary-blue); font-size: 0.9rem; font-weight: 700;">
+                    SEM REMÉDIOS • SEM ANESTÉSICOS • APENAS CONTROLE REAL
+                </p>
+            </div>
         </header>
 
         <div class="vsl-wrapper">
@@ -167,106 +232,174 @@
                 <video id="myVideo" controls playsinline webkit-playsinline muted preload="auto">
                     <source src="./video.mp4" type="video/mp4">
                     <source src="./video" type="video/mp4">
-                    
-                    <p style="color:white; text-align:center; padding: 20px;">
-                        Seu navegador não suporta este vídeo. 
-                    </p>
+                    <p style="color:white; text-align:center; padding: 20px;">Seu navegador não suporta este vídeo.</p>
                 </video>
             </div>
         </div>
-        <div id="video-error-msg"></div>
 
-        <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 QUERO TER CONTROLE TOTAL AGORA</a>
+        <div class="cta-container">
+            <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 QUERO TER CONTROLE TOTAL AGORA</a>
+        </div>
 
-        <section class="content-box">
-            <h2 class="text-gradient center-text">O Silêncio que Machuca</h2>
-            <br>
-            <p>Você começa animado, mas quando percebe… <strong>já acabou.</strong></p>
-            <br>
-            <p>E o pior não é o tempo. É a decepção no olhar dela.</p>
+        <section class="text-center">
+            <h2 class="text-gradient" style="font-size: 2.5rem; letter-spacing: 2px;">LONGER METHOD</h2>
+            <p style="margin-top: 15px; font-size: 1.1rem; color: #fff;">
+                Um protocolo estruturado de <strong>3 pilares</strong> para reprogramar seu reflexo ejaculatório e recuperar o domínio total.
+            </p>
         </section>
 
-        <section>
-            <h2 class="text-gradient">Não é culpa da sua virilidade</h2>
-            <div style="background: rgba(0,198,255,0.1); padding: 20px; border-left: 3px solid #fff; margin-top: 15px;">
-                <p><strong>O que ninguém te ensina:</strong></p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>Você nunca aprendeu a controlar o reflexo ejaculatório.</li>
-                    <li>Ninguém te ensinou técnicas de domínio corporal.</li>
-                </ul>
+        <section class="glass-card">
+            <h2 class="text-gradient text-center" style="margin-bottom: 20px;">O Silêncio que Machuca</h2>
+            <p>Você começa animado… Quer impressionar… Quer mostrar que é homem de verdade… <strong>Mas quando percebe… já acabou.</strong></p>
+            <br>
+            <p>E o pior não é o tempo. É o silêncio. É a decepção. É a sensação de fracasso. Você finge que está tudo bem. Ela finge que não se importa. Mas você sabe. E isso começa a destruir sua confiança.</p>
+        </section>
+
+        <section id="metodo">
+            <h2 class="section-title">Como o <span class="text-gradient">Longer Method</span> Funciona</h2>
+            
+            <p style="margin-bottom: 30px; text-align: center; color: #ccc;">
+                A maioria dos homens tenta apenas "segurar". O problema é que a tensão acelera o processo. O Longer Method atua na <strong>raiz do reflexo ejaculatório</strong>, recondicionando o corpo de forma progressiva.
+            </p>
+
+            <article class="pilar-box">
+                <span class="pilar-title">✔ Pilar 1 – Regulação do Sistema Nervoso</span>
+                <p>Técnicas práticas de respiração para reduzir a ansiedade imediata e controlar os picos de excitação antes que eles fiquem incontroláveis.</p>
+            </article>
+
+            <article class="pilar-box">
+                <span class="pilar-title">✔ Pilar 2 – Treinamento Progressivo do Reflexo</span>
+                <p>Exercícios físicos específicos para fortalecer a musculatura pélvica e recondicionar o tempo de resposta do seu corpo ao estímulo.</p>
+            </article>
+
+            <article class="pilar-box">
+                <span class="pilar-title">✔ Pilar 3 – Domínio Mental da Excitação</span>
+                <p>Estratégias para manter o controle mental mesmo em níveis altos de estímulo, evitando o "ponto sem volta".</p>
+            </article>
+
+            <div class="cta-container">
+                <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">QUERO APLICAR O MÉTODO</a>
             </div>
         </section>
 
-        <section class="content-box">
-            <h2 class="text-gradient center-text">🔥 Método Controle Absoluto</h2>
-            <ul class="highlight-list">
-                <li>Técnicas de respiração anti-ansiedade</li>
-                <li>Exercícios de fortalecimento do músculo PC</li>
-                <li>Estratégias mentais para durar 3x mais</li>
-            </ul>
-            <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">QUERO APRENDER O MÉTODO</a>
-        </section>
-
         <section>
-            <h2 class="center-text text-gradient">Resultados Reais</h2>
-            <div class="testimonial">
-                <p>“Eu mal passava de 1 minuto. Hoje consigo controlar o tempo e minha confiança mudou completamente.”</p>
-                <strong>– R.A.</strong>
+            <h2 class="section-title">Resultados Reais de <span class="text-gradient">Homens Comuns</span></h2>
+            <div class="testimonials-grid">
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Eu não passava de 1 minuto. Depois de aplicar o método por algumas semanas, consegui aumentar meu controle e minha confiança mudou completamente."</p>
+                    <span class="testimonial-author">– R.A.</span>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Sempre tive medo de me envolver por causa disso. Hoje me sinto muito mais seguro."</p>
+                    <span class="testimonial-author">– M.S.</span>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"A parte da respiração mudou tudo pra mim. Eu não sabia que era tão mental."</p>
+                    <span class="testimonial-author">– F.L.</span>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Valeu cada centavo. Foi a primeira vez que senti que realmente estava no controle."</p>
+                    <span class="testimonial-author">– J.P.</span>
+                </div>
+
+            </div>
+             <div class="cta-container" style="margin-top: 30px;">
+                <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">QUERO TER RESULTADOS ASSIM</a>
             </div>
         </section>
 
-        <section class="content-box">
-            <h2 class="text-gradient center-text">O Que Você Recebe:</h2>
-            <ul class="highlight-list">
-                <li>📘 Ebook Completo + Vídeo Aulas</li>
-                <li>🎁 Bônus: Guia Anti-Ansiedade</li>
-                <li>🔒 Acesso 100% discreto</li>
+        <section class="glass-card" style="border-left: 4px solid var(--alert-red);">
+            <h3 style="color: var(--alert-red); margin-bottom: 20px;">⚠️ Esse Método NÃO é Para Você Se:</h3>
+            <ul class="cross-list">
+                <li>Você procura uma "pílula mágica" sem praticar nada.</li>
+                <li>Não está disposto a aplicar os exercícios por pelo menos 10 minutos.</li>
+                <li>Quer resultado instantâneo sem nenhum compromisso com o processo.</li>
             </ul>
         </section>
 
-        <section class="center-text">
-            <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
-            <h2 class="text-gradient">Garantia de 7 Dias</h2>
-            <p>Risco zero. Se não gostar, devolvemos seu dinheiro.</p>
+        <section class="text-center">
+            <h2 class="text-gradient" style="font-size: 2rem;">Até Quando Você Vai Conviver Com Isso?</h2>
+            <br>
+            <div style="text-align: left; display: inline-block; max-width: 600px;">
+                <p style="margin-bottom: 15px;">Quantas vezes mais você vai sair frustrado?</p>
+                <p style="margin-bottom: 15px;">Quantas vezes vai evitar se envolver por medo de falhar?</p>
+                <p style="margin-bottom: 15px;">Cada vez que você ignora, o padrão se reforça.</p>
+                <br>
+                <p style="font-size: 1.2rem;">Ou você continua vivendo com insegurança…</p>
+                <p style="font-size: 1.2rem; color: var(--primary-blue); font-weight: bold;">Ou começa hoje a construir controle real.</p>
+            </div>
         </section>
 
-        <section class="price-box">
-            <h2 class="text-gradient">Última Chance</h2>
-            <p>O preço promocional é temporário.</p>
-            <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 SIM, EU QUERO TER CONTROLE</a>
+        <section class="glass-card">
+            <h2 class="text-gradient text-center">O Pacote Completo</h2>
+            <ul class="check-list" style="margin-top: 25px;">
+                <li>📘 <strong>Ebook Longer Method</strong> - O guia principal</li>
+                <li>🎥 <strong>Aulas em Vídeo</strong> - Explicação prática passo a passo</li>
+                <li>📋 <strong>Plano de Aplicação</strong> - Rotina simples de seguir</li>
+                <li>🎁 <strong>Bônus:</strong> Guia Anti-Ansiedade</li>
+                <li>🔒 <strong>Acesso 100% Discreto</strong> e imediato</li>
+            </ul>
         </section>
 
-        <footer style="text-align: center; padding: 40px 0; font-size: 0.8rem; color: #555;">
-            <p>Copyright © 2024 - Método Controle Absoluto</p>
+        <section class="text-center">
+            <div style="font-size: 3.5rem; margin-bottom: 15px;">🛡️</div>
+            <h2 class="text-gradient">Garantia Blindada de 7 Dias</h2>
+            <p>Teste o método sem riscos. Se não sentir evolução, devolvemos seu dinheiro.</p>
+        </section>
+
+        <section id="oferta-final" style="background: rgba(0, 114, 255, 0.05); border: 1px dashed var(--secondary-blue); border-radius: 15px; padding: 40px 20px;">
+            <h2 class="text-gradient text-center">ÚLTIMA CHANCE</h2>
+            
+            <div class="countdown-box">
+                <p style="font-size: 0.9rem; margin-bottom: 5px;">OFERTA ENCERRA EM:</p>
+                <div id="timer">14:59</div>
+            </div>
+
+            <p class="text-center" style="margin-bottom: 20px;">
+                Essa condição promocional é temporária e pode ser encerrada a qualquer momento. Ao garantir agora, você também recebe o <strong>Bônus Guia Anti-Ansiedade gratuitamente.</strong>
+            </p>
+
+            <div class="cta-container">
+                <a href="https://pay.kiwify.com.br/SykVrzJ?afid=iOMlmN6z" class="cta-button">👉 SIM, EU QUERO TER CONTROLE TOTAL</a>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; font-size: 0.8rem; color: #555; border-top: 1px solid rgba(255,255,255,0.05);">
+            <p>Copyright © 2024 - Longer Method</p>
+            <p style="margin-top: 5px;">Este site não faz parte do Facebook ou do Google. Este site não é endossado por eles.</p>
         </footer>
     </div>
 
     <script>
-        // --- SCRIPT DE DEBUG DO VÍDEO ---
-        const video = document.getElementById('myVideo');
-        const errorMsg = document.getElementById('video-error-msg');
+        // --- CONTADOR DE ESCASSEZ ---
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
 
-        // Tenta forçar o play se estiver pausado (útil mobile)
-        video.addEventListener('loadeddata', () => {
-            console.log("Vídeo carregado com sucesso!");
-            errorMsg.style.display = 'none';
-        });
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        video.addEventListener('error', (e) => {
-            errorMsg.style.display = 'block';
-            let msg = "Erro desconhecido.";
-            if (video.error) {
-                switch (video.error.code) {
-                    case 1: msg = "Carregamento abortado pelo usuário."; break;
-                    case 2: msg = "Erro de rede ao baixar o vídeo."; break;
-                    case 3: msg = "Erro ao decodificar o vídeo."; break;
-                    case 4: msg = "ARQUIVO NÃO ENCONTRADO (Verifique o nome/pasta)."; break;
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration; // Reinicia o loop
                 }
-            }
-            errorMsg.innerText = "⚠️ ERRO NO VÍDEO: " + msg + " (Verifique se o arquivo 'video.mp4' está na pasta correta no GitHub)";
-        }, true);
+            }, 1000);
+        }
 
-        // --- SCRIPT DAS PARTÍCULAS ---
+        window.onload = function () {
+            var fifteenMinutes = 60 * 15,
+                display = document.querySelector('#timer');
+            startTimer(fifteenMinutes, display);
+        };
+
+        // --- PARTÍCULAS ---
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         let particlesArray;
